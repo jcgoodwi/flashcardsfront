@@ -1,0 +1,13 @@
+<p>landing works!</p>
+
+<div *ngIf="show; else table">
+    Flashcard
+
+</div>
+<button (click)="toggleShow()">Toggle Show</button>
+
+<ng-template #table>
+    <div>
+        Table
+    </div>
+</ng-template>
