@@ -1,0 +1,27 @@
+<h1>All Cards</h1>
+<div *ngIf="cards.length > 0">
+    <div *ngFor="let c of cards; let i = index">
+        <div *ngIf="i != id; else back">
+            <mat-card>
+                <mat-card-content style="line-height: 30pt;">{{c.front}}</mat-card-content>
+                <mat-card-actions>
+                    <button (click)="toggleSide(i)">Flip</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        <ng-template #back>
+            <div *ngIf="i == id;">
+                <mat-card>
+                    <mat-card-content style="line-height: 30pt;">{{c.back}}</mat-card-content>
+                    <mat-card-actions>
+                        <button (click)="toggleSide(i)">Flip</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </ng-template>
+    </div>
+</div>
+
+<p *ngIf="cards.length === 0">
+    No cards
+</p>
